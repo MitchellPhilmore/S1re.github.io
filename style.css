@@ -1,0 +1,28 @@
+*{
+    box-sizing:border-box;
+}
+
+html{ 
+    height:100%;
+     padding:0;
+    margin:0;
+    background:radial-gradient(white,lightgray);
+  
+}
+header{
+    position:fixed;
+    top: 0;
+    padding:0.25%;
+    height:7%;
+    width:100%;
+    text-align: center;
+    font-size: 2rem;
+    background:linear-gradient(gray,white);
+    color:black;
+    font-family: cursive;
+}
+body{
+    height:100%;
+    padding:0;
+    margin:0;
+}
