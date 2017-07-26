@@ -19,7 +19,8 @@ header{
     font-size: 2rem;
     background:linear-gradient(gray,white);
     color:black;
-    font-family: cursive;
+    font-family:KaushanScript;
+    margin:0;;
 }
 body{
     height:100%;
