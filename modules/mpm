@@ -1,18 +1,20 @@
 #! /usr/bin/env bash
 #############################
 #
-#  Author: Abbas Abdulmalik
-#  Created: March 18, 2016
-#  Revised: (Date)
+#  Author: Mitchell Philmore
+#  Created: March 
+#  Revised: August 7, 2017
 #  Original Filename: apm renamed by any user to personalize it
 #  Purpose: download JS modules from my Dropbox modules repo
 #  Notes: Will allow my rekwire function to load my  modules
 #         from the local modules directory.
+#The sudo commad must be recongized by linux operating system
 #
 #############################
 BASE="https://s1re.github.io/modules/"
 if [ "$1" = "" ];
  then
+ clear
   echo
   echo You must provide the name of the remote JS module.
   echo Example: $(basename $0) mymodule
@@ -26,6 +28,8 @@ if [[ ! -d "modules" && ! -f "modules"  ]];
  then
   echo "making modules directory"
   sudo mkdir modules	
+  sudo chown $(whoami) modules
+  sudo chgrp $(whoami) modules
   echo
 fi
 if [ -f "modules" ];
@@ -38,7 +42,14 @@ fi
 for MODULE in $@;
  do
   sudo wget -O modules/${MODULE}.js "${BASE}${MODULE}.js"
+    sudo chgrp $(whoami) modules/${MODULE}.js
+    sudo chown $(whoami) modules/${MODULE}.js
+  
+
   if [ $? -ne 0 ];
    then sudo rm modules/${MODULE}.js
   fi
+    sudo chogrp $(whoami) modules/${MODULE}.js 2>/dev/null
+    sudo chown $(whoami) modules/${MODULE}.js 2>/dev/null
  done
+ 
